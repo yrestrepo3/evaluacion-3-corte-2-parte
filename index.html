@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web - Inicio</title>
+    <style>
+        /* Reset y estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header y Navegación */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #e67e22;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #e67e22;
+            color: white;
+        }
+
+        /* Banner / Hero Section */
+        .banner {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .banner p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .btn-banner {
+            display: inline-block;
+            background-color: #e67e22;
+            color: white;
+            padding: 0.8rem 2.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #e67e22;
+        }
+
+        .btn-banner:hover {
+            background-color: transparent;
+            border-color: white;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Secciones */
+        .seccion {
+            padding: 4rem 0;
+        }
+
+        .seccion-bg {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #e67e22;
+            margin: 0.8rem auto 0;
+            border-radius: 2px;
+        }
+
+        .seccion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tarjeta {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .icono-tarjeta {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #e67e22;
+        }
+
+        .tarjeta h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .tarjeta p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Sección de características */
+        .caracteristicas-lista {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .caracteristicas-lista li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .caracteristicas-lista li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            color: #e67e22;
+        }
+
+        .footer-col p, 
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+            color: #bdc3c7;
+            font-size: 0.95rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #e67e22;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .footer-bottom a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+
+            .banner h1 {
+                font-size: 2.2rem;
+            }
+
+            .banner p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de Navegación -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo"><span>YermanRestrepo</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Portafolio</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<!-- Banner Principal con imagen -->
+<section class="banner">
+    <div class="container" style="display: flex; align-items: center; gap: 3rem; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px; text-align: left;">
+            <h1></h1>
+            <p>Soluciones innovadoras para tu negocio digital. Creamos experiencias únicas que transforman visitantes en clientes.</p>
+            <a href="#" class="btn-banner">Descubrir Más</a>
+        </div>
+        <div style="flex: 1; min-width: 300px; text-align: center;">
+            <img src="img/Banner.webp" 
+                 alt="Descripción de la imagen" 
+                 style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+        </div>
+    </div>
+</section>
+    <!-- Primera Sección: Servicios -->
+<!-- Segunda Sección: ¿Por qué elegirnos? CON 2 BANNERS -->
+<section class="seccion">
+    <div class="container">
+        <div class="seccion-bg">           
+            <!-- Segundo Banner -->
+            <div style="margin-bottom: 2rem; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <img src="img/Hoja de vida.webp" 
+                     alt="Banner de beneficios" 
+                     style="width: 100%; height: auto; display: block;">
+            </div>
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+     <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>MiSitio</h4>
+                    <p>Somos una empresa dedicada a ofrecer soluciones digitales innovadoras para impulsar tu negocio al siguiente nivel.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Portafolio</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <p>yrestrepo3@udi.edu.co</p>
+                    <p>3195015728</p>
+                    <p>📍 Calle Principal 123, Madrid</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <p>Mantente al día con nuestras últimas noticias y proyectos en redes sociales.</p>
+                    <p style="font-size: 1.5rem; letter-spacing: 10px;">
+                        ⓕ ⓣ ⓘ
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <a href="#">MiSitio</a>. Todos los derechos reservados. | <a href="#">Política de Privacidad</a> | <a href="#">Términos de Uso</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
